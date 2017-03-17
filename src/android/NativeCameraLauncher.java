@@ -169,10 +169,10 @@ public class NativeCameraLauncher extends CordovaPlugin implements MediaScannerC
 				}
 				else if ((this.srcType == PHOTOLIBRARY) || (this.srcType == SAVEDPHOTOALBUM)) {
 					// FIXME: Stop always requesting the permission
-					if(!PermissionHelper.hasPermission(this, permissions[0])) {
-						PermissionHelper.requestPermission(this, SAVE_TO_ALBUM_SEC, Manifest.permission.READ_EXTERNAL_STORAGE);
+          if(!PermissionHelper.hasPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+              PermissionHelper.requestPermission(this, SAVE_TO_ALBUM_SEC, Manifest.permission.READ_EXTERNAL_STORAGE);
 					} else {
-						this.takePicture(this.srcType, destType);
+           this.getImage(this.srcType, destType, encodingType);
 					}
 				}
 			}
