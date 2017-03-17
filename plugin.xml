@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-cameraplus"
+    version="1.0.8">
+
+    <name>cordova-plugin-cameraplus</name>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0" />
+    </engines>
+
+    <description>Camera Plugin for android to keep app in foreground</description>
+
+    <author>mike hartington</author>
+
+    <keywords>cordova,camera,android</keywords>
+
+    <license>MIT</license>
+
+
+    <repo>https://github.com/mhartington/cordova-plugin-cameraplus.git</repo>
+
+    <js-module src="www/CameraConstants.js" name="Camera">
+        <clobbers target="Camera" />
+    </js-module>
+
+    <js-module src="www/CameraPopoverOptions.js" name="CameraPopoverOptions">
+        <clobbers target="CameraPopoverOptions" />
+    </js-module>
+
+    <js-module src="www/Camera.js" name="camera">
+        <clobbers target="navigator.camera" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Camera">
+                <param name="android-package" value="cordova.plugin.cameraplus.NativeCameraLauncher"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.CAMERA" />
+ 			<uses-feature android:name="android.hardware.camera" />
+			<uses-feature android:name="android.hardware.camera.autofocus" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                android:label="nativecameraplugin"
+                android:name="cordova.plugin.cameraplus.CameraActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/Theme.InAppTheme">
+            </activity>
+            <activity
+                android:label="previewwindow"
+                android:name="cordova.plugin.inappcamera.PreviewActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/Theme.InAppTheme">
+            </activity>
+        </config-file>
+
+        <source-file src="src/android/NativeCameraLauncher.java" target-dir="src/cordova/plugin/cameraplus" />
+        <source-file src="src/android/CameraActivity.java" target-dir="src/cordova/plugin/cameraplus" />
+        <source-file src="src/android/camera_layout.xml" target-dir="res/layout" />
+        <source-file src="src/android/PreviewActivity.java" target-dir="src/cordova/plugin/cameraplus" />
+        <source-file src="src/android/preview_layout.xml" target-dir="res/layout" />
+        <source-file src="src/android/ExifHelper.java" target-dir="src/cordova/plugin/cameraplus" />
+        <source-file src="src/android/FileHelper.java" target-dir="src/cordova/plugin/cameraplus" />
+        <source-file src="src/android/styles.xml" target-dir="res/values" />
+        <source-file src="res/ic_check_circle_white_24dp.png" target-dir="res/drawable" />
+        <source-file src="res/ic_replay_white_24dp.png" target-dir="res/drawable" />
+        <source-file src="res/btn_shot.png" target-dir="res/drawable" />
+        <source-file src="res/btn_flip.png" target-dir="res/drawable" />
+        <source-file src="res/btn_flash_on.png" target-dir="res/drawable" />
+        <source-file src="res/btn_flash_no.png" target-dir="res/drawable" />
+        <source-file src="res/btn_flash_auto.png" target-dir="res/drawable" />
+        <source-file src="res/viewfinder.png" target-dir="res/drawable" />
+
+
+        <framework src="com.github.bumptech.glide:glide:3.7.0" />
+        <framework src="com.android.support:support-v4:19.1.0" />
+        <framework src="com.android.support:appcompat-v7:22.2.0" />
+
+     </platform>
+
+</plugin>

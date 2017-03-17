@@ -1,0 +1,23 @@
+{
+  "name": "cordova-plugin-cameraplus",
+  "version": "1.0.8",
+  "description": "Native Camera in custom activity",
+  "main": "plugin.xml",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhartington/cordova-plugin-cameraplus.git"
+  },
+  "keywords": [
+    "custom",
+    "camera",
+    "activity",
+    "plugin",
+    "native"
+  ],
+  "author": "mhartington <mhartington.io>",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/mhartington/cordova-plugin-cameraplus/issues"
+  },
+  "homepage": "https://github.com/mhartington/cordova-plugin-cameraplus#readme"
+}
