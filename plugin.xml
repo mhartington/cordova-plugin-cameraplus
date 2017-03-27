@@ -83,7 +83,7 @@
 
 
         <framework src="com.github.bumptech.glide:glide:3.7.0" />
-        <framework src="com.android.support:support-v4:19.1.0" />
+        <framework src="com.android.support:support-v4:24.1.1+" />
         <framework src="com.android.support:appcompat-v7:22.2.0" />
 
      </platform>
